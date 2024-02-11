@@ -1,37 +1,38 @@
 import React from "react";
+import Thumb from "./components/Thumb";
 import "./App.css";
 
 const App = () => {
-  const name = "vikas";
-  console.log("hello world");
-
+  const obj = {
+    title: "javaScript",
+    time: "9 months ago",
+    image:
+      "https://www.slashgear.com/img/gallery/the-15-coolest-concept-cars-of-all-time/intro-1660139822.webp",
+    views: "1m",
+  };
+  const images = {
+    image1: "node.jpg",
+  };
+  const channel = "lyingNoob";
   return (
-    <div className="main">
-      <h1>hello {name}</h1>
-      <Child />
+    <div className="app">
+      <Thumb
+        channel={channel}
+        views={"100k"}
+        title="React with Noob"
+        time="1 years ago"
+        image={images.image1}
+      />
+      <Thumb
+        channel={channel}
+        views={"89k"}
+        title="Node with Noob"
+        time=" 3 months ago"
+        image="videoOne.webp"
+      />
+      <Thumb {...obj} />
     </div>
   );
 };
-
-function Child() {
-  const style = {
-    height: "40vh",
-    weidth: "100%",
-    backgroundColor: "gray",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "2rem",
-  };
-  return (
-    <main>
-      <div style={style}>
-        <h1>hello its me lyingNoob</h1>
-        <p>i am leanring react and i willl be a good programmer in future </p>
-      </div>
-    </main>
-  );
-}
 
 export default App;
