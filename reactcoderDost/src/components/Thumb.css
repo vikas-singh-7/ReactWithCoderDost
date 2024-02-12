@@ -3,7 +3,8 @@
     margin: 0 0.2em;
     float: left;
     border: 2px solid black;
-    height: 18rem;
+    /* height: 18rem; */
+    /* padding: 10px; */
 }
 
 .pic img {

@@ -7,6 +7,7 @@ const Thumb = ({
   channel = "lyingNoob",
   time,
   verified,
+  children,
 }) => {
   return (
     <>
@@ -23,6 +24,7 @@ const Thumb = ({
           {views} views<span>.</span>
           {time}
         </div>
+        {children}
       </div>
     </>
   );

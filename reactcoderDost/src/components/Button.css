@@ -3,11 +3,12 @@
     width: 100px;
     background-color: black;
     color: wheat;
-    padding: 1em;
+    padding: 2px;
     border: 2px solid yellow;
-    border-radius: 20px;
+    border-radius: 10px;
     transition: all;
     transition-duration: 0.4s;
+    margin-top: 10px;
 }
 
 .button:hover {

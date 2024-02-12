@@ -1,17 +1,15 @@
+import { useState } from "react";
 import "./Button.css";
-const Button = ({ children, message, onClick }) => {
-  // const handleClick=()=>{
-  //     onClick(message)
-  // }
+const Button = ({ children, onPlay, onPause }) => {
+  const [state, setstate] = useState(false);
+  const handleClick = () => {
+    state ? onPause() : onPlay();
+    setstate(!state);
+  };
   return (
     <div>
-      <button
-        className="button"
-        onClick={() => {
-          onClick(message);
-        }}
-      >
-        {children}
+      <button className="button" onClick={handleClick}>
+        {children} : {state ? "⏸️" : "⏯️"}
       </button>
     </div>
   );
