@@ -1,36 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import Thumb from "./components/Thumb";
 import "./App.css";
+import details from "./data/data";
+import Button from "./components/Button";
 
 const App = () => {
-  const obj = {
-    title: "javaScript",
-    time: "9 months ago",
-    image:
-      "https://www.slashgear.com/img/gallery/the-15-coolest-concept-cars-of-all-time/intro-1660139822.webp",
-    views: "1m",
+  const [message, setmessage] = useState("play");
+  const onhandlePlay = (message) => {
+    message === "play"
+      ? (console.log(message), setmessage("pause"))
+      : (console.log(message), setmessage("play"));
   };
-  const images = {
-    image1: "node.jpg",
-  };
-  const channel = "lyingNoob";
+  // const onhandlePause = (message) => {
+  //   console.log(message);
+  // };
   return (
     <div className="app">
-      <Thumb
-        channel={channel}
-        views={"100k"}
-        title="React with Noob"
-        time="1 years ago"
-        image={images.image1}
-      />
-      <Thumb
-        channel={channel}
-        views={"89k"}
-        title="Node with Noob"
-        time=" 3 months ago"
-        image="videoOne.webp"
-      />
-      <Thumb {...obj} />
+      {details.map((item) => {
+        return <Thumb key={item.id} {...item} />;
+      })}
+      <div style={{ clear: "both", display: "flex", gap: "2px" }}>
+        <Button message={message} onClick={onhandlePlay}>
+          {message}
+        </Button>
+        {/* <Button message={"pause button"} onClick={onhandlePause}>
+          pause
+        </Button> */}
+      </div>
     </div>
   );
 };

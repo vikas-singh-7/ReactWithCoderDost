@@ -1,7 +1,9 @@
-.conatiner {
+.container {
     width: 15em;
     margin: 0 0.2em;
     float: left;
+    border: 2px solid black;
+    height: 18rem;
 }
 
 .pic img {
