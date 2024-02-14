@@ -1,3 +1,4 @@
+import Clock from "./Clock";
 import "./Thumb.css";
 
 const Thumb = ({
@@ -26,6 +27,7 @@ const Thumb = ({
         </div>
         {children}
       </div>
+      
     </>
   );
 };

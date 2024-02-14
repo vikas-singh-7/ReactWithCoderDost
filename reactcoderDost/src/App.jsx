@@ -3,6 +3,7 @@ import Thumb from "./components/Thumb";
 import "./App.css";
 import details from "./data/data";
 import Button from "./components/Button";
+import Clock from "./components/Clock";
 
 const App = () => {
   return (
@@ -24,6 +25,8 @@ const App = () => {
           </Thumb>
         );
       })}
+
+      <Clock />
     </div>
   );
 };
