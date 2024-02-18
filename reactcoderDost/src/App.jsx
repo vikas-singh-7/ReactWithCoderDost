@@ -3,31 +3,48 @@ import Thumb from "./components/Thumb";
 import "./App.css";
 import details from "./data/data";
 import Button from "./components/Button";
-import Clock from "./components/Clock";
+import Form from "./components/Form";
 
 const App = () => {
+  const [video, setvideo] = useState(details);
+  function addvideo({ title, views, time, image, verified }) {
+    setvideo([
+      ...video,
+      {
+        id: title,
+        title,
+        time,
+        verified,
+        image,
+        views,
+      },
+    ]);
+  }
+  const handleClose = (id) => {
+    setvideo(video.filter((item) => item.id != id));
+  };
+  const handleEdit = (id) => {
+    console.log("hello i am edit video", id);
+    console.log(video.find((item) => item.id == id));
+  };
   return (
-    <div className="app">
-      {details.map((item) => {
-        return (
-          <Thumb key={item.id} {...item}>
-            {" "}
-            <div>
-              <Button
-                onPlay={() => {
-                  console.log("playing..", item.title);
-                }}
-                onPause={() => console.log("paused..", item.title)}
-              >
-                {item.title}
-              </Button>
-            </div>
-          </Thumb>
-        );
-      })}
-
-      <Clock />
-    </div>
+    <>
+      <Form addvideo={addvideo} />
+      <div className="app">
+        {video.map((item) => {
+          return (
+            <Thumb
+              key={item.id}
+              {...item}
+              handleClose={handleClose}
+              handleEdit={handleEdit}
+            >
+              <Button key={item.title}>{item.title}</Button>
+            </Thumb>
+          );
+        })}
+      </div>
+    </>
   );
 };
 
